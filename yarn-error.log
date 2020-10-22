@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\psbakre\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add react-native-screens@>= 2.0.0 react-native-vector-icons@>6.6.0
+  C:\Program Files\nodejs\node.exe C:\Users\psbakre\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add react-native-safe-area-contex
 
 PATH: 
   C:\Program Files\PowerShell\7;C:\Program Files\WindowsApps\Microsoft.WindowsTerminal_1.3.2651.0_x64__8wekyb3d8bbwe;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\WINDOWS;C:\Program Files\MongoDB\Server\4.2\bin;C:\Program Files (x86)\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Git\cmd;C:\Program Files\PowerShell\7\;C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python37_64;C:\Program Files\dotnet\;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\nodejs\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Users\psbakre\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Azure Data Studio\bin;C:\Users\psbakre\.dotnet\tools;C:\Users\psbakre\.deno\bin;C:\Program Files\MongoDB\Server\4.4\bin;C:\Users\psbakre\.dotnet\tools;C:\Program Files (x86)\Graphviz2.38\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2020.2.1\bin;;C:\Program Files\Java\jdk-14.0.2\bin\;C:\Users\psbakre\AppData\Roaming\npm
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/2.0.0: Not found
+  Error: https://registry.yarnpkg.com/react-native-safe-area-contex: Not found
       at Request.params.callback [as _callback] (C:\Users\psbakre\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66988:18)
       at Request.self.callback (C:\Users\psbakre\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140662:22)
       at Request.emit (events.js:314:20)
@@ -38,6 +38,7 @@ npm manifest:
     },
     "dependencies": {
       "@react-native-community/masked-view": "^0.1.10",
+      "@react-navigation/drawer": "^5.9.3",
       "@react-navigation/native": "^5.7.6",
       "@react-navigation/stack": "^5.9.3",
       "expo": "~39.0.2",
@@ -47,6 +48,8 @@ npm manifest:
       "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.3.tar.gz",
       "react-native-elements": "2.3.2",
       "react-native-gesture-handler": "^1.8.0",
+      "react-native-screens": "2.0.0",
+      "react-native-vector-icons": ">6.6.0",
       "react-native-web": "~0.13.12"
     },
     "devDependencies": {
@@ -1332,6 +1335,14 @@ Lockfile:
       react-is "^16.13.0"
       use-subscription "^1.4.0"
   
+  "@react-navigation/drawer@^5.9.3":
+    version "5.9.3"
+    resolved "https://registry.yarnpkg.com/@react-navigation/drawer/-/drawer-5.9.3.tgz#d8b9a6d46a7fe436fcc8d410a10017852e420042"
+    integrity sha512-bc9cyJGONvTf6tsdwjgyMV5VMVIgJc9URMGbiXzj68Vp94lsxi6YbsOW01ErLpD8ltyCBNEC+Ll/1vv6CZiJaQ==
+    dependencies:
+      color "^3.1.2"
+      react-native-iphone-x-helper "^1.2.1"
+  
   "@react-navigation/native@^5.7.6":
     version "5.7.6"
     resolved "https://registry.yarnpkg.com/@react-navigation/native/-/native-5.7.6.tgz#47546c512488d0e9c343219af635e1a44881761d"
@@ -2241,6 +2252,11 @@ Lockfile:
     version "1.9.3"
     resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.9.3.tgz#b7f94b22ad2a136a4ca02a01ab68ae893fe1a268"
     integrity sha512-V+1SyIvkS+HmNbN1G7A9+ERbFTV9KTXu6Oor98v2xHmzzpp52OIJhQuJSTywWuBY5pyAEmlwbCi1Me87n/SLOw==
+  
+  debounce@^1.2.0:
+    version "1.2.0"
+    resolved "https://registry.yarnpkg.com/debounce/-/debounce-1.2.0.tgz#44a540abc0ea9943018dc0eaa95cce87f65cd131"
+    integrity sha512-mYtLl1xfZLi1m4RtQYlZgJUNQjl4ZxVnHzIR8nLLgi4q1YT8o/WM+MK/f8yfcc9s5Ir5zRaPZyZU6xs1Syoocg==
   
   debug@2.6.9, debug@^2.2.0, debug@^2.3.3:
     version "2.6.9"
@@ -3658,10 +3674,50 @@ Lockfile:
     dependencies:
       p-locate "^4.1.0"
   
+  lodash._reinterpolate@^3.0.0:
+    version "3.0.0"
+    resolved "https://registry.yarnpkg.com/lodash._reinterpolate/-/lodash._reinterpolate-3.0.0.tgz#0ccf2d89166af03b3663c796538b75ac6e114d9d"
+    integrity sha1-DM8tiRZq8Ds2Y8eWU4t1rG4RTZ0=
+  
+  lodash.frompairs@^4.0.1:
+    version "4.0.1"
+    resolved "https://registry.yarnpkg.com/lodash.frompairs/-/lodash.frompairs-4.0.1.tgz#bc4e5207fa2757c136e573614e9664506b2b1bd2"
+    integrity sha1-vE5SB/onV8E25XNhTpZkUGsrG9I=
+  
   lodash.isequal@^4.5.0:
     version "4.5.0"
     resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
     integrity sha1-QVxEePK8wwEgwizhDtMib30+GOA=
+  
+  lodash.isstring@^4.0.1:
+    version "4.0.1"
+    resolved "https://registry.yarnpkg.com/lodash.isstring/-/lodash.isstring-4.0.1.tgz#d527dfb5456eca7cc9bb95d5daeaf88ba54a5451"
+    integrity sha1-1SfftUVuynzJu5XV2ur4i6VKVFE=
+  
+  lodash.omit@^4.5.0:
+    version "4.5.0"
+    resolved "https://registry.yarnpkg.com/lodash.omit/-/lodash.omit-4.5.0.tgz#6eb19ae5a1ee1dd9df0b969e66ce0b7fa30b5e60"
+    integrity sha1-brGa5aHuHdnfC5aeZs4Lf6MLXmA=
+  
+  lodash.pick@^4.4.0:
+    version "4.4.0"
+    resolved "https://registry.yarnpkg.com/lodash.pick/-/lodash.pick-4.4.0.tgz#52f05610fff9ded422611441ed1fc123a03001b3"
+    integrity sha1-UvBWEP/53tQiYRRB7R/BI6AwAbM=
+  
+  lodash.template@^4.5.0:
+    version "4.5.0"
+    resolved "https://registry.yarnpkg.com/lodash.template/-/lodash.template-4.5.0.tgz#f976195cf3f347d0d5f52483569fe8031ccce8ab"
+    integrity sha512-84vYFxIkmidUiFxidA/KjjH9pAycqW+h980j7Fuz5qxRtO9pgB7MDFTdys1N7A5mcucRiDyEq4fusljItR1T/A==
+    dependencies:
+      lodash._reinterpolate "^3.0.0"
+      lodash.templatesettings "^4.0.0"
+  
+  lodash.templatesettings@^4.0.0:
+    version "4.2.0"
+    resolved "https://registry.yarnpkg.com/lodash.templatesettings/-/lodash.templatesettings-4.2.0.tgz#e481310f049d3cf6d47e912ad09313b154f0fb33"
+    integrity sha512-stgLz+i3Aa9mZgnjr/O+v9ruKZsPsndy7qPZOchbqk2cnTU1ZaldKK+v7m54WoKIyxiuMZTKT2H81F8BeAc3ZQ==
+    dependencies:
+      lodash._reinterpolate "^3.0.0"
   
   lodash.throttle@^4.1.1:
     version "4.1.1"
@@ -4730,10 +4786,31 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-3.1.4.tgz#9b7f883a5ae8da6218d17467a350434005893602"
     integrity sha512-bXx3hqz4LovFoMnJIRGIWL2oJ/PHadXviBKvgZV9yNErtURQLJSn0yfQytVtiqslhaBMZOJwH4R6HiClyofvBg==
   
+  react-native-screens@2.0.0:
+    version "2.0.0"
+    resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-2.0.0.tgz#ac9db593351474790f8daa5d85b5ea337b20cfb1"
+    integrity sha512-T1xxYajGuiaOXjqKWKfjw9LKwoGTn69WrYZcg0jB2ZlPE6o6QqlJWtR1ytqu/4fg8pHdsk5S1iPY06mqTylrYA==
+    dependencies:
+      debounce "^1.2.0"
+  
   react-native-status-bar-height@^2.5.0:
     version "2.5.0"
     resolved "https://registry.yarnpkg.com/react-native-status-bar-height/-/react-native-status-bar-height-2.5.0.tgz#bc0fb85230603850aab9667ee8111a62954de90c"
     integrity sha512-sYBCPYA/NapBSHkdm/IVL4ID3LLlIuLqINi2FBDyMkc2BU9pfSGOtkz9yfxoK39mYJuTrlTOQ7mManARUsYDSA==
+  
+  react-native-vector-icons@>6.6.0:
+    version "7.1.0"
+    resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-7.1.0.tgz#145487d617b2a81d395d2cf64e6e065fcab3a454"
+    integrity sha512-V2a1zJ4i+kS8O4j183gIwX14St9AxxXabxwYpFBgRhvr2NDXyFcjHDEAgrOYYlt2W57e20aN1tBDU/I+wn9WtQ==
+    dependencies:
+      lodash.frompairs "^4.0.1"
+      lodash.isequal "^4.5.0"
+      lodash.isstring "^4.0.1"
+      lodash.omit "^4.5.0"
+      lodash.pick "^4.4.0"
+      lodash.template "^4.5.0"
+      prop-types "^15.7.2"
+      yargs "^15.0.2"
   
   react-native-web@~0.13.12:
     version "0.13.18"
@@ -5895,7 +5972,7 @@ Lockfile:
       y18n "^4.0.0"
       yargs-parser "^15.0.1"
   
-  yargs@^15.1.0:
+  yargs@^15.0.2, yargs@^15.1.0:
     version "15.4.1"
     resolved "https://registry.yarnpkg.com/yargs/-/yargs-15.4.1.tgz#0d87a16de01aee9d8bec2bfbf74f67851730f4f8"
     integrity sha512-aePbxDmcYW++PaqBsJ+HYUFwCdv4LVvdnhBy78E57PIor8/OVvhMrADFFEDh8DHDFRv/O9i3lPhsENjO7QX0+A==
